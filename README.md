@@ -79,24 +79,24 @@ List<MemberDto> result = em.createQuery(
 DTO의 package이름을 다 적어줘야해서 지저분함
 생성자 방식만 지원함
 
-Querydsl 빈 생성
-프로퍼티 접근 - Setter
+Querydsl 빈 생성<br/>
+프로퍼티 접근 - Setter<br/>
 queryFactory
  .select(Projections.bean(MemberDto.class,
  member.username,
- member.age))
- 필드 직접 접근
+ member.age))<br/>
+ 필드 직접 접근<br/>
  .select(Projections.fields(MemberDto.class,
  member.username,
  member.age))
- 
-프로젝션과 결과 반환 - @QueryProjection
-dto class 생성자 + @QueryProjection -> ./gradlew compileQuerydsl-> QMemberDto 생성 확인
+ <br/>
+프로젝션과 결과 반환 - @QueryProjection<br/>
+dto class 생성자 + @QueryProjection -> ./gradlew compileQuerydsl-> QMemberDto 생성 확인<br/>
 이 방법은 컴파일러로 타입을 체크할 수 있으므로 가장 안전한 방법이다. 다만 DTO에 QueryDSL
 어노테이션을 유지해야 하는 점과 DTO까지 Q 파일을 생성해야 하는 단점이 있다.
 
-동적 쿼리를 해결하는 두가지 방식
-BooleanBuilder
-Where 다중 파라미터 사용
+동적 쿼리를 해결하는 두가지 방식<br/>
+BooleanBuilder<br/>
+Where 다중 파라미터 사용<br/>
 
 
