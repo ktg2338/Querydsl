@@ -6,21 +6,21 @@ build.gradle<br/>
  implementation 'com.querydsl:querydsl-jpa'
 
 //querydsl 추가 시작<br/>
-def querydslDir = "$buildDir/generated/querydsl"
-querydsl {
- jpa = true
- querydslSourcesDir = querydslDir
-}
-sourceSets {
- main.java.srcDir querydslDir
-}
-configurations {
- querydsl.extendsFrom compileClasspath
-}
-compileQuerydsl {
- options.annotationProcessorPath = configurations.querydsl
+def querydslDir = "$buildDir/generated/querydsl"<br/>
+querydsl {<br/>
+ jpa = true<br/>
+ querydslSourcesDir = querydslDir<br/>
 }<br/>
-//querydsl 추가 끝
+sourceSets {<br/>
+ main.java.srcDir querydslDir<br/>
+}<br/>
+configurations {<br/>
+ querydsl.extendsFrom compileClasspath<br/>
+}<br/>
+compileQuerydsl {<br/>
+ options.annotationProcessorPath = configurations.querydsl<br/>
+}<br/>
+//querydsl 추가 끝<br/>
 
 검증용 Q 타입 생성<br/>
 Gradle IntelliJ 사용법<br/>
@@ -86,6 +86,7 @@ queryFactory
  member.username,
  member.age))<br/>
  필드 직접 접근<br/>
+ queryFactory
  .select(Projections.fields(MemberDto.class,
  member.username,
  member.age))
